@@ -17,14 +17,12 @@ app.get('/', (req, res) => {
 });
 
 app.post('/subscribe', async (req, res) => {
+  console.log("🔥 SUBSCRIBE ROUTE HIT");
+  
   try {
     const { name, email } = req.body;
 
-    console.log('========================');
-    console.log('NEW SUBMISSION RECEIVED');
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('========================');
+    console.log("DATA", name, email);
 
     const response = await axios.post(
       'https://connect.mailerlite.com/api/subscribers',
@@ -43,7 +41,7 @@ app.post('/subscribe', async (req, res) => {
       }
     );
 
-    console.log('Subscriber added to MailerLite');
+    console.log("✅ MailerLite success");
 
     res.json({
       success: true,
