@@ -7,7 +7,16 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: 'https://healing-journey-assessment.vercel.app',
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  })
+);
+
+app.options('*', cors());
+
 app.use(express.json());
 
 const GROUP_ID = '188572544667747580';
