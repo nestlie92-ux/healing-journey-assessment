@@ -7,13 +7,14 @@ dotenv.config();
 
 const app = express();
 
-app.use(
-  cors({
-    origin: 'https://healing-journey-assessment.vercel.app',
+app.use(cors({
+    origin:"*",
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
   })
 );
+
+app.options('*', cors());
 
 app.use(express.json());
 
