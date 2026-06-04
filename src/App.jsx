@@ -70,7 +70,7 @@ const handleStartAssessment = async () => {
   try {
 
     const response = await fetch(
-      'http://localhost:5000/subscribe',
+      "https://healing-journey-api.onrender.com/subscribee",
       {
         method: 'POST',
         headers: {
