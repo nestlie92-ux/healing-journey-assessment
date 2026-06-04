@@ -542,11 +542,31 @@ const handleStartAssessment = async () => {
           <div className="bg-[#B08D57] rounded-2xl p-6 text-white text-center">
 
             <h3 className="text-xl font-bold mb-2">
-              Ready For Deeper Transformation?
+              Faith In Your Darkest Seasons:30 Days To Inner Healing
             </h3>
 
             <p className="text-sm mb-4 opacity-90">
-              Continue your journey with practical tools, emotional healing resources, and guided support designed to help you move forward with confidence.
+              Based on your assessment results, your next step is a guided healing journey designed to help you process emotional pain, reconnect with God, and move forward with confidence and hope.
+            </p>
+
+            <div className="text-left bg-white/10 rounded-2xl p-4 mb-5">
+
+              <p>✓ 154-page guided healing journal</p>
+
+              <p>✓ 30 guided audio prayers</p>
+
+              <p>✓ 30-day healing journey tracker</p>
+
+              <p>✓ Reflection exercises & prompts</p>
+
+              <p>✓ 100+ Bible verses</p>
+
+              <p>✓ Real breakthrough stories</p>
+
+            </div>
+
+            <p className="font-semibold text-lg mb-5">
+              Instant PDF Access $26.99
             </p>
 
             <button
