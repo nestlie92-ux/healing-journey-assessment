@@ -70,7 +70,7 @@ const handleStartAssessment = async () => {
   try {
 
     const response = await fetch(
-      "https://healing-journey-api.onrender.com/subscribee",
+      "https://healing-journey-api.onrender.com/subscribe",
       {
         method: 'POST',
         headers: {
@@ -81,8 +81,8 @@ const handleStartAssessment = async () => {
           email
         })
       }
-    );
 
+    );
     const data = await response.json();
 
     console.log('Backend response:', data);
