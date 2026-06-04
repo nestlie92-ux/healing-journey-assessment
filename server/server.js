@@ -15,8 +15,6 @@ app.use(
   })
 );
 
-app.options('*', cors());
-
 app.use(express.json());
 
 const GROUP_ID = '188572544667747580';
