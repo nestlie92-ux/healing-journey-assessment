@@ -28,7 +28,13 @@ app.post('/subscribe', async (req, res) => {
   console.log("🔥 SUBSCRIBE ROUTE HIT");
   
   try {
-    const { name, email } = req.body;
+    const { 
+      name, 
+      email,
+      struggle,
+      belief,
+      ready 
+    } = req.body;
 
     console.log("DATA", name, email);
 
@@ -37,7 +43,10 @@ app.post('/subscribe', async (req, res) => {
       {
         email,
         fields: {
-          name: name
+          name: name,
+          struggle: struggle, 
+          belief: belief,
+          ready: ready
         },
         groups: [GROUP_ID]
       },

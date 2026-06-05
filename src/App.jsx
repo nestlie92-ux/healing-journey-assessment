@@ -66,36 +66,10 @@ const DarkestSeasonAssessment = () => {
   ];
 
   const isValidEmail = /\S+@\S+\.\S+/.test(email);
-const handleStartAssessment = async () => {
-  try {
 
-    const response = await fetch(
-      'https://healing-journey-assessment.onrender.com/subscribe',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name,
-          email
-        })
-      }
-
-    );
-    const data = await response.json();
-
-    console.log('Backend response:', data);
-
+  const handleStartAssessment = async () => {
     setStep('questions');
-
-  } catch (error) {
-
-    console.error('Error sending email:', error);
-
-    setStep('questions');
-  }
-};
+  };
   const handleQuestionAnswer = (questionId, value) => {
     const updatedAnswers = {
       ...answers,
@@ -285,6 +259,30 @@ const handleStartAssessment = async () => {
         testimonial: 
           personalizedContent[categoryKey]?.testimonial
      });  
+
+      fetch(
+        'https://healing-journey-assessment.onrender.com/subscribe',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+         },
+           body: JSON.stringify({
+             name,
+             email,
+             struggle: finalAnswers.struggle,
+             belief: finalAnswers.belief,
+             ready: finalAnswers.ready
+         })
+        }
+  )
+  .then((res) => res.json())
+  .then((data) => {
+    console.log('MailerLite success:', data);
+ })
+  .catch((err) => {
+    console.error('MailerLite error:', err);
+  });
 
       setLoading(false);
       setStep('result');
@@ -536,17 +534,21 @@ const handleStartAssessment = async () => {
              Your next season can look very different from your current one.
             </p>
 
+            <p className="text-xs mt-4 opacity-80">
+              Secure checkout through Payhip • Instant PDF delivery after purchase
+            </p>
+
           </div>
 
           {/* CTA BOX */}
           <div className="bg-[#B08D57] rounded-2xl p-6 text-white text-center">
 
-            <h3 className="text-xl font-bold mb-2">
+            <h3 className="text-2xl font-bold mb-3">
               Faith In Your Darkest Seasons:30 Days To Inner Healing
             </h3>
 
-            <p className="text-sm mb-4 opacity-90">
-              Based on your assessment results, your next step is a guided healing journey designed to help you process emotional pain, reconnect with God, and move forward with confidence and hope.
+            <p className="text-sm mb-5 opacity-95 leading-relaxed">
+              Based on your assessment results, your next step is a guided healing journey created for women navigating emotional pain, disappointment, uncertainty, and restoration.
             </p>
 
             <div className="text-left bg-white/10 rounded-2xl p-4 mb-5">
@@ -578,7 +580,7 @@ const handleStartAssessment = async () => {
               }
               className="bg-white text-rose-600 px-6 py-4 rounded-2xl font-semibold hover:bg-gray-100 transition"
             >
-              Start My Healing Journey
+              Get Instant Access Now
             </button>
 
           </div>
