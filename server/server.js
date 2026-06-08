@@ -36,7 +36,13 @@ app.post('/subscribe', async (req, res) => {
       ready 
     } = req.body;
 
-    console.log("DATA", name, email);
+    console.log({
+      name, 
+      email,
+      struggle,
+      belief,
+      ready
+    });
 
     const response = await axios.post(
       'https://connect.mailerlite.com/api/subscribers',
