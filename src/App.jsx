@@ -151,11 +151,11 @@ const DarkestSeasonAssessment = () => {
   },
 };
 
-  const generateInsight = (finalAnswers) => {
+  const generateInsight = async (finalAnswers) => {
     setLoading(true);
     setStep('loading');
 
-    const timeout = setTimeout(() => {
+    const timeout = setTimeout(async () => {
       const insights = {
         betrayal: {
           unworthy:
@@ -295,11 +295,19 @@ const DarkestSeasonAssessment = () => {
       )
   .then((res) => res.json())
   .then((data) => {
-    console.log('MailerLite success:', data);
- })
+    console.log({
+      name,
+      email,
+      struggle: finalAnswers.struggle,
+      belief: finalAnswers.belief,
+      ready: finalAnswers.ready
+    });
+  })
+
   .catch((err) => {
     console.error('MailerLite error:', err);
   });
+
 
       setLoading(false);
       setStep('result');
