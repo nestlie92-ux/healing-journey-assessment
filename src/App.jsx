@@ -245,6 +245,23 @@ const DarkestSeasonAssessment = () => {
        },
      };
 
+      await fetch(
+        'https://healing-journey-assessment.onrender.com/subscribe',
+       {
+          method: 'POST',
+          headers: {
+           'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            struggle: finalAnswers.struggle,
+            belief: finalAnswers.belief,
+            ready: finalAnswers.ready
+         })
+       }
+     );
+
       setResult({
         insight: baseInsight,
         name: name || 'Beautiful Soul',
@@ -273,9 +290,9 @@ const DarkestSeasonAssessment = () => {
              struggle: finalAnswers.struggle,
              belief: finalAnswers.belief,
              ready: finalAnswers.ready
-         })
+           })
         }
-  )
+      )
   .then((res) => res.json())
   .then((data) => {
     console.log('MailerLite success:', data);
