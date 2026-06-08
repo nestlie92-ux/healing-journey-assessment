@@ -306,9 +306,9 @@ const DarkestSeasonAssessment = () => {
     console.log({
       name,
       email,
-      struggle,
-      belief,
-      ready
+      struggle: finalAnswers.struggle,
+      belief: finalAnswers.belief,
+      ready: finalAnswers.ready
     });
   })
 

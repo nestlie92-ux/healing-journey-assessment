@@ -39,9 +39,9 @@ app.post('/subscribe', async (req, res) => {
     console.log({
       name, 
       email,
-      struggle,
-      belief,
-      ready
+      struggle: finalAnswers.struggle,
+      belief: finalAnswers.belief,
+      ready: finalAnswers.ready
     });
 
     const response = await axios.post(
