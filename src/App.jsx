@@ -245,6 +245,14 @@ const DarkestSeasonAssessment = () => {
        },
      };
 
+      console.log({
+        name,
+        email,
+        struggle: finalAnswers.struggle,
+        belief: finalAnswers.belief,
+        ready: finalAnswers.ready
+     });
+
       await fetch(
         'https://healing-journey-assessment.onrender.com/subscribe',
        {
